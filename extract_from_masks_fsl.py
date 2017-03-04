@@ -9,3 +9,11 @@ def extract_from_masks(mask_files,data_file):
     masknames = [op.splitext(op.splitext(op.basename(x))[0])[0] for x in mask_files]
     output = dict(zip(masknames,output))
     return(output) 
+
+def generate_masks(labeled_image_data, therange = None):
+    if therange == None:
+        therange = range(labeled_image_data.min(), labeled_image_data.max()+1)
+    masks = list()
+    for i in range(len(therange)):
+        masks.append(labeled_image_data == therange[i])
+    return(masks)
