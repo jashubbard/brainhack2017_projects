@@ -11,6 +11,10 @@ def extract_from_masks(mask_files,data_file):
     return(output) 
 
 def generate_masks(labeled_image_data, therange = None):
+    #given an array of image data (e.g., from nib.load(fname).get_data()), find the range of 
+    #voxel labels and for each value in the range, add a binary mask with voxels
+    #having that value set to TRUE. 
+    #Returns the list of (probably) 3d arrays of masks.
     if therange == None:
         therange = range(labeled_image_data.min(), labeled_image_data.max()+1)
     masks = list()
