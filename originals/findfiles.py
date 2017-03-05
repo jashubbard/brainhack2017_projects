@@ -9,9 +9,6 @@ import fnmatch
 
 
 
-
-
-
 def findfiles(starting_dir,searchstring):
     fmatches = []
     dmatches = []
