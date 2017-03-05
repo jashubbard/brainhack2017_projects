@@ -22,11 +22,12 @@ def extract_from_masks(mask_files,data_file, masknames=None, dataframe = False, 
 
 
     if dataframe and average:
-        output = pd.DataFrame(output)
+        output = dict(zip(masknames,output))
+        output = pd.DataFrame(output, columns=masknames)
     elif dataframe: 
         output = [pd.DataFrame(x) for x in output]
-    
-    output = dict(zip(masknames,output))
+    else:
+        output = dict(zip(masknames,output))
 
     return(output) 
 
